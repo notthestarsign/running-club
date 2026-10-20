@@ -5,7 +5,7 @@
 
   /* Configuration */
   const LOADER = {
-    duration: 3000,   // ms: how long the loader takes, every page, every time
+    duration: 1500,   // ms: how long the loader takes, every page, every time
     finishPause: 250, // ms: hold on 100% before fading out
     maxWait: 10000,   // ms: failsafe, never keep the overlay longer than this
   };
