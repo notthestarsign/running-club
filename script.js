@@ -1,27 +1,19 @@
-/**
- * RUNNING CLUB NAME - Shared JavaScript
- * Handles: Loading screen, mobile nav, scroll animations,
- * header scroll state, filters, forms, FAQ, back-to-top
- */
+/* Shared JavaScript */
 
 (function () {
   "use strict";
 
-  /* ========================================================================
-     Configuration
-     ======================================================================== */
+  /* Configuration */
   const LOADER = {
     duration: 3000,   // ms: how long the loader takes, every page, every time
     finishPause: 250, // ms: hold on 100% before fading out
     maxWait: 10000,   // ms: failsafe, never keep the overlay longer than this
   };
 
-  // Used only for scroll reveal animations (the loader ignores it on purpose)
+  // Used only for scroll reveal animations
   const REDUCED_MOTION = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  /* ========================================================================
-     DOM Ready
-     ======================================================================== */
+  /* DOM Ready */
   document.addEventListener("DOMContentLoaded", init);
 
   function init() {
@@ -44,9 +36,7 @@
     });
   }
 
-  /* ========================================================================
-     Loading Screen
-     ======================================================================== */
+  /*  Loading Screen  */
   function initLoader(onDone) {
     const overlay = document.getElementById("loader-overlay");
     if (!overlay) {
@@ -135,24 +125,17 @@
     document.body.classList.remove("is-loading");
   });
 
-  /* ========================================================================
+  /* 
      Hero Background Carousel
-     Slides in from the right, loops forever, pauses when the tab is hidden
-     or the hero is off-screen, and can be paused with the button.
-     ======================================================================== */
+     Auto-plays only (no visitor controls). Slides in from the right, loops
+     forever, and pauses while the tab is hidden or the hero is off-screen.
+      */
   function initHeroCarousel() {
     const root = document.querySelector("[data-hero-carousel]");
     if (!root) return null;
 
     const slides = Array.from(root.querySelectorAll(".hero-slide"));
-    const controls = document.querySelector(".hero-carousel-controls");
-    const dotsWrap = controls ? controls.querySelector(".hero-dots") : null;
-    const toggle = controls ? controls.querySelector(".hero-toggle") : null;
-
-    if (slides.length < 2) {
-      if (controls) controls.style.display = "none";
-      return { start() {} };
-    }
+    if (slides.length < 2) return { start() {} };
 
     const INTERVAL = Number(root.dataset.interval) || 5000; // ms each slide stays
     const SLIDE_MS = 1000; // keep in sync with --hero-slide-duration in CSS
@@ -161,22 +144,7 @@
     let timer = null;
     let animating = false;
     let started = false;
-    let userPaused = false;
     let inView = true;
-
-    const dots = slides.map((_, i) => {
-      const dot = document.createElement("button");
-      dot.type = "button";
-      dot.className = "hero-dot" + (i === 0 ? " is-active" : "");
-      dot.setAttribute("aria-label", "Show slide " + (i + 1));
-      if (i === 0) dot.setAttribute("aria-current", "true");
-      dot.addEventListener("click", () => {
-        goTo(i);
-        schedule();
-      });
-      if (dotsWrap) dotsWrap.appendChild(dot);
-      return dot;
-    });
 
     // Move a slide back to its waiting spot (off to the right) without animating
     function resetSlide(slide) {
@@ -186,23 +154,18 @@
       slide.classList.remove("no-anim");
     }
 
-    function goTo(index) {
-      if (index === current || animating) return;
+    function next() {
+      if (animating) return;
       animating = true;
 
       const from = slides[current];
-      const to = slides[index];
+      current = (current + 1) % slides.length;
+      const to = slides[current];
 
       resetSlide(to);
       from.classList.remove("is-active");
       from.classList.add("is-leaving");
       to.classList.add("is-active");
-
-      dots[current].classList.remove("is-active");
-      dots[current].removeAttribute("aria-current");
-      dots[index].classList.add("is-active");
-      dots[index].setAttribute("aria-current", "true");
-      current = index;
 
       setTimeout(() => {
         resetSlide(from);
@@ -210,26 +173,13 @@
       }, SLIDE_MS + 50);
     }
 
-    function canPlay() {
-      return started && !userPaused && inView && !document.hidden;
-    }
-
     function schedule() {
       clearTimeout(timer);
-      if (!canPlay()) return;
+      if (!started || !inView || document.hidden) return;
       timer = setTimeout(() => {
-        goTo((current + 1) % slides.length);
+        next();
         schedule();
       }, INTERVAL);
-    }
-
-    if (toggle) {
-      toggle.addEventListener("click", () => {
-        userPaused = !userPaused;
-        toggle.classList.toggle("is-paused", userPaused);
-        toggle.setAttribute("aria-label", userPaused ? "Play slideshow" : "Pause slideshow");
-        schedule();
-      });
     }
 
     document.addEventListener("visibilitychange", schedule);
@@ -249,9 +199,7 @@
     };
   }
 
-  /* ========================================================================
-     Gallery Lightbox
-     ======================================================================== */
+  /* Gallery Lightbox  */
   function initLightbox() {
     const links = Array.from(document.querySelectorAll("[data-lightbox]"));
     const box = document.getElementById("lightbox");
@@ -347,13 +295,17 @@
     }, { passive: true });
   }
 
-  /* ========================================================================
+  /* 
      Mobile Navigation
-     ======================================================================== */
+     Closes with: the X button, a tap on the dark area, Escape, a link click,
+     or by resizing up to the desktop layout.
+      */
   function initMobileNav() {
     const toggle = document.querySelector(".nav-toggle");
     const mobileNav = document.querySelector(".nav-mobile");
     if (!toggle || !mobileNav) return;
+
+    const closeBtn = mobileNav.querySelector(".nav-close");
 
     function setOpen(open) {
       toggle.setAttribute("aria-expanded", String(open));
@@ -362,14 +314,31 @@
       document.body.classList.toggle("nav-open", open);
     }
 
-    toggle.addEventListener("click", () => {
-      const open = toggle.getAttribute("aria-expanded") !== "true";
-      setOpen(open);
+    const isOpen = () => mobileNav.classList.contains("is-open");
 
+    toggle.addEventListener("click", () => {
+      const open = !isOpen();
+      setOpen(open);
       if (open) {
         const firstLink = mobileNav.querySelector("a");
-        if (firstLink) firstLink.focus();
+        if (firstLink) firstLink.focus({ preventScroll: true });
       } else {
+        toggle.focus();
+      }
+    });
+
+    // X button
+    if (closeBtn) {
+      closeBtn.addEventListener("click", () => {
+        setOpen(false);
+        toggle.focus();
+      });
+    }
+
+    // Tap anywhere on the dark area (anything that isn't a link or button)
+    mobileNav.addEventListener("click", (e) => {
+      if (!e.target.closest("a, button")) {
+        setOpen(false);
         toggle.focus();
       }
     });
@@ -381,16 +350,19 @@
 
     // Close on Escape
     document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape" && mobileNav.classList.contains("is-open")) {
+      if (e.key === "Escape" && isOpen()) {
         setOpen(false);
         toggle.focus();
       }
     });
+
+    // If the window grows to the desktop layout, don't leave the page locked
+    window.matchMedia("(min-width: 1080px)").addEventListener("change", (e) => {
+      if (e.matches && isOpen()) setOpen(false);
+    });
   }
 
-  /* ========================================================================
-     Header Scroll State
-     ======================================================================== */
+  /* Header Scroll State  */
   function initHeaderScroll() {
     const header = document.querySelector(".site-header");
     if (!header) return;
@@ -416,9 +388,7 @@
     update(); // initial
   }
 
-  /* ========================================================================
-     Scroll Animations (Intersection Observer) — Reversible
-     ======================================================================== */
+  /* Scroll Animations (Intersection Observer) — Reversible */
   function initScrollAnimations() {
     const targets = document.querySelectorAll("[data-animate], [data-stagger]");
 
@@ -447,14 +417,18 @@
     targets.forEach((el) => observer.observe(el));
   }
 
-  /* ========================================================================
+  /* 
      Back to Top
-     ======================================================================== */
+     Glides up the page with an eased, distance-based duration so you
+     see everything you scrolled past on the way back.
+      */
   function initBackToTop() {
     const btn = document.querySelector(".back-to-top");
     if (!btn) return;
 
+    const html = document.documentElement;
     let ticking = false;
+    let gliding = false;
 
     function update() {
       btn.classList.toggle("is-visible", window.scrollY > 500);
@@ -472,14 +446,51 @@
       { passive: true }
     );
 
-    btn.addEventListener("click", () => {
-      window.scrollTo({ top: 0, behavior: REDUCED_MOTION ? "auto" : "smooth" });
-    });
+    // Ease in-out: gentle start, smooth middle, soft landing
+    function ease(t) {
+      return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+    }
+
+    function glideToTop() {
+      const startY = window.scrollY;
+      if (startY <= 0 || gliding) return;
+      gliding = true;
+
+      // Longer pages take longer: between 1.2s and 3.5s
+      const duration = Math.min(Math.max(startY * 0.7, 1200), 3500);
+      const startTime = performance.now();
+      const previous = html.style.scrollBehavior;
+      let cancelled = false;
+
+      // CSS smooth-scroll would fight every frame of the animation
+      html.style.scrollBehavior = "auto";
+
+      // Any manual scroll input stops the glide so the visitor stays in control
+      const cancelEvents = ["wheel", "touchstart", "mousedown", "keydown"];
+      const cancel = () => { cancelled = true; };
+      cancelEvents.forEach((ev) => window.addEventListener(ev, cancel, { passive: true }));
+
+      function done() {
+        cancelEvents.forEach((ev) => window.removeEventListener(ev, cancel));
+        html.style.scrollBehavior = previous;
+        gliding = false;
+      }
+
+      function step(now) {
+        if (cancelled) return done();
+        const t = Math.min((now - startTime) / duration, 1);
+        window.scrollTo(0, Math.round(startY * (1 - ease(t))));
+        if (t < 1) requestAnimationFrame(step);
+        else done();
+      }
+
+      requestAnimationFrame(step);
+    }
+
+    btn.addEventListener("click", glideToTop);
   }
 
-  /* ========================================================================
-     Active Navigation State
-     ======================================================================== */
+  /* Active Navigation State */
   function initActiveNav() {
     const path = window.location.pathname.split("/").pop() || "index.html";
     const links = document.querySelectorAll(".nav-link");
@@ -495,9 +506,7 @@
     });
   }
 
-  /* ========================================================================
-     Activity / Event Filters
-     ======================================================================== */
+  /* Activity / Event Filters */
   function initFilters() {
     const filterBars = document.querySelectorAll(".filter-bar");
     if (!filterBars.length) return;
@@ -536,9 +545,7 @@
     });
   }
 
-  /* ========================================================================
-     FAQ Accordion
-     ======================================================================== */
+  /* FAQ Accordion */
   function initFAQ() {
     const items = document.querySelectorAll(".faq-item");
     if (!items.length) return;
@@ -575,9 +582,7 @@
     });
   }
 
-  /* ========================================================================
-     Contact Form Validation (Client-side only)
-     ======================================================================== */
+  /* Contact Form Validation (Client-side only) */
   function initContactForm() {
     const form = document.getElementById("contact-form");
     if (!form) return;
@@ -625,7 +630,7 @@
       });
 
       if (valid) {
-        // Demonstration only — no backend
+        // Demonstration only
         form.reset();
         if (successMsg) {
           successMsg.classList.add("is-visible");
@@ -646,4 +651,173 @@
       });
     });
   }
+
+  
+/* ==========================================================================
+   EVENT DETAILS MODAL
+   ========================================================================== */
+
+(() => {
+  const modal = document.getElementById("event-modal");
+
+  // This script can safely run on pages without the event modal.
+  if (!modal) return;
+
+  const title = document.getElementById("event-modal-title");
+  const category = document.getElementById("event-modal-category");
+  const description = document.getElementById("event-modal-description");
+  const date = document.getElementById("event-modal-date");
+  const time = document.getElementById("event-modal-time");
+  const location = document.getElementById("event-modal-location");
+  const difficulty = document.getElementById("event-modal-difficulty");
+
+  const events = {
+    anniversary: {
+      title: "Club Anniversary Run & Celebration",
+      category: "Featured Event",
+      description:
+        "Join us for a special group run followed by a social gathering. Celebrate the club, meet fellow runners, and enjoy a welcoming community atmosphere. All paces are welcome.",
+      date: "[EVENT DATE]",
+      time: "[TIME]",
+      location: "[EVENT LOCATION]",
+      difficulty: "All levels"
+    },
+
+    sunrise: {
+      title: "Sunrise Park Loop",
+      category: "Social Run",
+      description:
+        "Start your morning with an easy-paced group run through scenic park paths. This relaxed session is suitable for runners of all levels. Meet the group at the main entrance and enjoy the run together.",
+      date: "12 [MONTH]",
+      time: "[TIME]",
+      location: "[EVENT LOCATION]",
+      difficulty: "All levels"
+    },
+
+    intervals: {
+      title: "Track Intervals Night",
+      category: "Speed Session",
+      description:
+        "Improve your speed and running efficiency with structured 400-metre and 800-metre intervals, with recovery jogs between efforts. Bring a running watch, water bottle, and suitable training shoes.",
+      date: "18 [MONTH]",
+      time: "[TIME]",
+      location: "[EVENT LOCATION]",
+      difficulty: "Moderate and above"
+    },
+
+    "half-marathon": {
+      title: "Half Marathon Tune-Up",
+      category: "Race Preparation",
+      description:
+        "Build endurance with a progressive long run designed for half-marathon preparation. Multiple distance options can accommodate different training goals. Choose a distance appropriate to your current fitness and training plan.",
+      date: "25 [MONTH]",
+      time: "[TIME]",
+      location: "[EVENT LOCATION]",
+      difficulty: "Experienced runners"
+    },
+
+    welcome: {
+      title: "New Member Welcome Run",
+      category: "Social",
+      description:
+        "Meet the club in a friendly, relaxed setting. This short group run welcomes new and prospective members, with time afterwards for coffee, introductions, and questions about joining.",
+      date: "02 [MONTH]",
+      time: "[TIME]",
+      location: "[EVENT LOCATION]",
+      difficulty: "Beginner friendly"
+    }
+  };
+
+  let previousFocus = null;
+
+  function openModal(eventKey, trigger) {
+    const event = events[eventKey];
+
+    if (!event) return;
+
+    previousFocus = trigger;
+
+    title.textContent = event.title;
+    category.textContent = event.category;
+    description.textContent = event.description;
+    date.textContent = event.date;
+    time.textContent = event.time;
+    location.textContent = event.location;
+    difficulty.textContent = event.difficulty;
+
+    modal.classList.add("is-open");
+    modal.setAttribute("aria-hidden", "false");
+    document.body.classList.add("modal-open");
+
+    const closeButton = modal.querySelector(".event-modal-close");
+    closeButton.focus();
+  }
+
+  function closeModal() {
+    if (!modal.classList.contains("is-open")) return;
+
+    modal.classList.remove("is-open");
+    modal.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("modal-open");
+
+    if (previousFocus && document.contains(previousFocus)) {
+      previousFocus.focus();
+    }
+  }
+
+  // Event delegation supports all event cards, including filtered lists.
+  document.addEventListener("click", (event) => {
+    const trigger = event.target.closest("[data-event-details]");
+
+    if (trigger) {
+      openModal(trigger.dataset.eventDetails, trigger);
+      return;
+    }
+
+    if (
+      event.target.closest("[data-modal-close]") &&
+      modal.classList.contains("is-open")
+    ) {
+      closeModal();
+    }
+  });
+
+  // Close the modal with Escape and keep keyboard focus inside while open.
+  document.addEventListener("keydown", (event) => {
+    if (!modal.classList.contains("is-open")) return;
+
+    if (event.key === "Escape") {
+      event.preventDefault();
+      closeModal();
+      return;
+    }
+
+    if (event.key === "Tab") {
+      const focusable = [
+        ...modal.querySelectorAll(
+          'button:not([disabled]), a[href], input:not([disabled]), ' +
+          'select:not([disabled]), textarea:not([disabled]), ' +
+          '[tabindex]:not([tabindex="-1"])'
+        )
+      ].filter((element) => element.getClientRects().length > 0);
+
+      if (!focusable.length) return;
+
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (
+        !event.shiftKey &&
+        document.activeElement === last
+      ) {
+        event.preventDefault();
+        first.focus();
+      }
+    }
+  });
+})();
+
 })();

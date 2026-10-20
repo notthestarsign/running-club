@@ -1,15 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Events at RUNNING CLUB NAME — upcoming runs, training sessions, and community gatherings.">
+  <meta name="description"
+    content="Events at RUNNING CLUB NAME — upcoming runs, training sessions, and community gatherings.">
   <title>Events — RUNNING CLUB NAME</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
   <!-- Loading Overlay -->
   <div id="loader-overlay" class="loader-overlay" aria-busy="true">
@@ -18,19 +23,28 @@
 
       <div class="runner-container" aria-hidden="true">
         <div class="runner">
-          <div class="runner-leg runner-leg--far"><div class="runner-shin"></div></div>
+          <div class="runner-leg runner-leg--far">
+            <div class="runner-shin"></div>
+          </div>
           <div class="runner-torso">
             <div class="runner-head"></div>
-            <div class="runner-arm runner-arm--far"><div class="runner-forearm"></div></div>
-            <div class="runner-arm runner-arm--near"><div class="runner-forearm"></div></div>
+            <div class="runner-arm runner-arm--far">
+              <div class="runner-forearm"></div>
+            </div>
+            <div class="runner-arm runner-arm--near">
+              <div class="runner-forearm"></div>
+            </div>
           </div>
-          <div class="runner-leg runner-leg--near"><div class="runner-shin"></div></div>
+          <div class="runner-leg runner-leg--near">
+            <div class="runner-shin"></div>
+          </div>
         </div>
         <div class="runner-shadow"></div>
       </div>
 
       <div class="loader-progress-wrap">
-        <div class="loader-progress-track" role="progressbar" aria-label="Page loading" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+        <div class="loader-progress-track" role="progressbar" aria-label="Page loading" aria-valuemin="0"
+          aria-valuemax="100" aria-valuenow="0">
           <div class="loader-progress-bar"></div>
         </div>
         <div class="loader-percent" aria-hidden="true">0%</div>
@@ -63,6 +77,13 @@
   </header>
 
   <nav id="mobile-menu" class="nav-mobile" aria-label="Mobile navigation">
+    <button class="nav-close" type="button" aria-label="Close menu"
+      style="position:absolute;top:1rem;right:1.25rem;width:48px;height:48px;display:flex;align-items:center;justify-content:center;color:#fff;">
+      <svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+        viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M6 6l12 12M18 6L6 18" />
+      </svg>
+    </button>
     <a href="index.html" class="nav-link">Home</a>
     <a href="about.html" class="nav-link">About</a>
     <a href="activities.html" class="nav-link">Activities</a>
@@ -79,7 +100,8 @@
         <p class="hero-label" data-animate>Mark Your Calendar</p>
         <h1 class="page-hero-title" data-animate>Events</h1>
         <p class="page-hero-text" data-animate>
-          Club runs, training nights, and community gatherings. All dates and details below are demonstration placeholders.
+          Club runs, training nights, and community gatherings. All dates and details below are demonstration
+          placeholders.
         </p>
       </div>
     </section>
@@ -92,19 +114,23 @@
             <p class="event-label">Featured Event</p>
             <h3>Club Anniversary Run & Celebration</h3>
             <p>
-              Join us for a special group run followed by a social gathering. All paces welcome. Demonstration event — not a real booking.
+              Join us for a special group run followed by a social gathering. All paces welcome. Demonstration event —
+              not a real booking.
             </p>
             <div class="featured-meta">
               <span><strong style="display:block;color:#fff;margin-bottom:2px;">Date</strong>[EVENT DATE]</span>
               <span><strong style="display:block;color:#fff;margin-bottom:2px;">Time</strong>[TIME]</span>
               <span><strong style="display:block;color:#fff;margin-bottom:2px;">Location</strong>[EVENT LOCATION]</span>
             </div>
-            <a href="event-details.html" class="btn btn-primary">Event Details</a>
+            <button type="button" class="btn btn-primary" data-event-details="anniversary">
+              Event Details
+            </button>
           </div>
-          <div class="placeholder-visual" style="min-height: 220px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);">
+          <div class="placeholder-visual"
+            style="min-height: 220px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);">
             <svg viewBox="0 0 100 100" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1.5" aria-hidden="true">
-              <path d="M20 70 L40 40 L55 55 L80 25"/>
-              <circle cx="80" cy="25" r="4" fill="rgba(255,61,0,0.5)"/>
+              <path d="M20 70 L40 40 L55 55 L80 25" />
+              <circle cx="80" cy="25" r="4" fill="rgba(255,61,0,0.5)" />
             </svg>
           </div>
         </div>
@@ -121,7 +147,8 @@
           <p class="section-desc">Filter by category. All content is for demonstration only.</p>
         </div>
 
-        <div class="filter-bar" data-filter-target="[data-filter-item]" role="group" aria-label="Filter events" data-animate>
+        <div class="filter-bar" data-filter-target="[data-filter-item]" role="group" aria-label="Filter events"
+          data-animate>
           <button class="filter-btn is-active" data-filter="all" aria-pressed="true">All</button>
           <button class="filter-btn" data-filter="social" aria-pressed="false">Social</button>
           <button class="filter-btn" data-filter="training" aria-pressed="false">Training</button>
@@ -142,8 +169,11 @@
                 <span>[EVENT LOCATION]</span>
                 <span class="tag tag-all">All Levels</span>
               </div>
-              <p class="event-card-text">An easy-paced group run through scenic park paths. Open to all levels. Meet at the main entrance.</p>
-              <a href="event-details.html" class="btn btn-ghost btn-sm">Event Details</a>
+              <p class="event-card-text">An easy-paced group run through scenic park paths. Open to all levels. Meet at
+                the main entrance.</p>
+              <button type="button" class="btn btn-ghost btn-sm" data-event-details="sunrise">
+                Event Details
+              </button>
             </div>
           </article>
 
@@ -160,8 +190,11 @@
                 <span>[EVENT LOCATION]</span>
                 <span class="tag tag-moderate">Moderate+</span>
               </div>
-              <p class="event-card-text">Structured 400m and 800m intervals with recovery jogs. Bring a watch and water bottle.</p>
-              <a href="events.html" class="btn btn-ghost btn-sm">View Details</a>
+              <p class="event-card-text">Structured 400m and 800m intervals with recovery jogs. Bring a watch and water
+                bottle.</p>
+              <button type="button" class="btn btn-ghost btn-sm" data-event-details="intervals">
+                View Details
+              </button>
             </div>
           </article>
 
@@ -178,8 +211,11 @@
                 <span>[EVENT LOCATION]</span>
                 <span class="tag tag-hard">Experienced</span>
               </div>
-              <p class="event-card-text">Progressive long run designed for half-marathon training. Multiple distance options available.</p>
-              <a href="events.html" class="btn btn-ghost btn-sm">View Details</a>
+              <p class="event-card-text">Progressive long run designed for half-marathon training. Multiple distance
+                options available.</p>
+              <button type="button" class="btn btn-ghost btn-sm" data-event-details="half-marathon">
+                View Details
+              </button>
             </div>
           </article>
 
@@ -196,7 +232,8 @@
                 <span>[EVENT LOCATION]</span>
                 <span class="tag tag-easy">Beginner Friendly</span>
               </div>
-              <p class="event-card-text">A short, welcoming run for new and prospective members. Stay after for coffee and questions.</p>
+              <p class="event-card-text">A short, welcoming run for new and prospective members. Stay after for coffee
+                and questions.</p>
               <a href="membership.html" class="btn btn-ghost btn-sm">Join Us</a>
             </div>
           </article>
@@ -224,13 +261,14 @@
       <div class="footer-grid">
         <div>
           <div class="footer-brand">RUNNING CLUB NAME</div>
-          <p class="footer-desc">Every pace. One community. A running club for all levels, built on consistency, inclusivity, and support.</p>
+          <p class="footer-desc">Every pace. One community. A running club for all levels, built on consistency,
+            inclusivity, and support.</p>
           <div class="footer-social">
             <a href="#" aria-label="Instagram (placeholder)" title="YOUR SOCIAL LINK">
-              <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-            </a>
-            <a href="#" aria-label="Strava (placeholder)" title="YOUR SOCIAL LINK">
-              <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066m-7.008-5.599l2.836 5.599h4.172L10.463 0l-7 13.828h4.169"/></svg>
+              <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+              </svg>
             </a>
           </div>
         </div>
@@ -267,10 +305,84 @@
   </footer>
 
   <button class="back-to-top" aria-label="Back to top">
-    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+      <path d="M12 19V5M5 12l7-7 7 7" />
+    </svg>
   </button>
+
+  
+<!-- Event Details Modal -->
+<div
+  class="event-modal"
+  id="event-modal"
+  aria-hidden="true"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="event-modal-title"
+  aria-describedby="event-modal-description"
+>
+  <div class="event-modal-backdrop" data-modal-close></div>
+
+  <div class="event-modal-content" role="document">
+    <button
+      type="button"
+      class="event-modal-close"
+      data-modal-close
+      aria-label="Close event details"
+    >
+      &times;
+    </button>
+
+    <p class="event-modal-label">RUNNING CLUB NAME</p>
+    <p class="event-modal-category" id="event-modal-category">
+      Club Event
+    </p>
+
+    <h2 id="event-modal-title">Event Title</h2>
+
+    <p class="event-modal-description" id="event-modal-description">
+      Event description will appear here.
+    </p>
+
+    <div class="event-modal-divider"></div>
+
+    <div class="event-modal-meta">
+      <div class="event-modal-meta-item">
+        <span class="event-modal-meta-label">DATE</span>
+        <span id="event-modal-date">To be announced</span>
+      </div>
+
+      <div class="event-modal-meta-item">
+        <span class="event-modal-meta-label">TIME</span>
+        <span id="event-modal-time">To be announced</span>
+      </div>
+
+      <div class="event-modal-meta-item">
+        <span class="event-modal-meta-label">LOCATION</span>
+        <span id="event-modal-location">To be announced</span>
+      </div>
+
+      <div class="event-modal-meta-item">
+        <span class="event-modal-meta-label">DIFFICULTY</span>
+        <span id="event-modal-difficulty">All levels</span>
+      </div>
+    </div>
+
+    <div class="event-modal-footer">
+      <button
+        type="button"
+        class="btn btn-primary"
+        data-modal-close
+      >
+        Got It
+      </button>
+    </div>
+  </div>
+</div>
+
 
   <script src="script.js"></script>
   <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
 </body>
+
 </html>
