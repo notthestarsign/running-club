@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="RUNNING CLUB NAME — Every pace. One community. Join our inclusive running club.">
+  <meta name="theme-color" content="#0c0c0c">
+  <title>RUNNING CLUB NAME — Every Pace. One Community.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <!-- If JavaScript is disabled, never trap visitors behind the loader -->
+  <noscript>
+    <style>
+      .loader-overlay { display: none !important; }
+      body.is-loading { overflow: auto !important; }
+      [data-animate], [data-stagger] > * { opacity: 1 !important; transform: none !important; }
+    </style>
+  </noscript>
+</head>
+<body class="is-loading">
+
+  <!-- Loading Overlay -->
+  <div id="loader-overlay" class="loader-overlay" aria-busy="true">
+    <div class="loader-content">
+      <div class="loader-brand">RUNNING CLUB NAME</div>
+
+      <div class="runner-container" aria-hidden="true">
+        <div class="runner">
+          <div class="runner-leg runner-leg--far"><div class="runner-shin"></div></div>
+          <div class="runner-torso">
+            <div class="runner-head"></div>
+            <div class="runner-arm runner-arm--far"><div class="runner-forearm"></div></div>
+            <div class="runner-arm runner-arm--near"><div class="runner-forearm"></div></div>
+          </div>
+          <div class="runner-leg runner-leg--near"><div class="runner-shin"></div></div>
+        </div>
+        <div class="runner-shadow"></div>
+      </div>
+
+      <div class="loader-progress-wrap">
+        <div class="loader-progress-track" role="progressbar" aria-label="Page loading" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+          <div class="loader-progress-bar"></div>
+        </div>
+        <div class="loader-percent" aria-hidden="true">0%</div>
+        <div class="loader-message" aria-hidden="true">Warming up</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="brand" aria-label="RUNNING CLUB NAME — Home">
+        <span class="brand-name">RUNNING CLUB NAME</span>
+      </a>
+      <nav class="nav-desktop" aria-label="Main navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="activities.html" class="nav-link">Activities</a>
+        <a href="events.html" class="nav-link">Events</a>
+        <a href="gallery.html" class="nav-link">Gallery</a>
+        <a href="membership.html" class="nav-link">Membership</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="membership.html" class="btn btn-primary btn-sm nav-cta">Join the Club</a>
+      </nav>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Nav -->
+  <nav id="mobile-menu" class="nav-mobile" aria-label="Mobile navigation">
+    <a href="index.html" class="nav-link">Home</a>
+    <a href="about.html" class="nav-link">About</a>
+    <a href="activities.html" class="nav-link">Activities</a>
+    <a href="events.html" class="nav-link">Events</a>
+        <a href="gallery.html" class="nav-link">Gallery</a>
+    <a href="membership.html" class="nav-link">Membership</a>
+    <a href="contact.html" class="nav-link">Contact</a>
+    <a href="membership.html" class="btn btn-primary nav-cta">Join the Club</a>
+  </nav>
+
+  <main class="main-content">
+    <!-- Hero -->
+    <section class="hero">
+      <!-- Background carousel: swap the images in images/hero/ (or add more slides) -->
+      <div class="hero-carousel" data-hero-carousel data-interval="5000" aria-label="Club photos">
+      <div class="hero-slide is-active">
+        <img src="images/hero/hero-1.jpg" alt="" fetchpriority="high" decoding="async">
+      </div>
+      <div class="hero-slide">
+        <img src="images/hero/hero-2.jpg" alt="" decoding="async">
+      </div>
+      <div class="hero-slide">
+        <img src="images/hero/hero-3.jpg" alt="" decoding="async">
+      </div>
+      <div class="hero-slide">
+        <img src="images/hero/hero-4.jpg" alt="" decoding="async">
+      </div>
+      </div>
+      <div class="hero-bg">
+        <div class="hero-track" aria-hidden="true"></div>
+      </div>
+      <div class="container hero-content">
+        <p class="hero-label" data-animate>YOUR CLUB SLOGAN</p>
+        <h1 class="hero-title" data-animate>
+          EVERY PACE.<br><span>ONE COMMUNITY.</span>
+        </h1>
+        <p class="hero-text" data-animate>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum nemo, nesciunt dignissimos porro nam nisi omnis!
+        </p>
+        <div class="hero-actions" data-animate>
+          <a href="membership.html" class="btn btn-primary btn-lg">Join the Club</a>
+          <a href="about.html" class="btn btn-secondary btn-lg" style="border-color: rgba(255,255,255,0.4); color: #fff;">Discover the Club</a>
+        </div>
+      </div>
+      <div class="hero-carousel-controls" role="group" aria-label="Slideshow controls">
+        <div class="hero-dots"></div>
+        <button class="hero-toggle" type="button" aria-label="Pause slideshow">
+          <svg class="icon-pause" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
+          <svg class="icon-play" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13a1 1 0 001.5.86l10.5-6.5a1 1 0 000-1.72L9.5 4.64A1 1 0 008 5.5z"/></svg>
+        </button>
+      </div>
+    </section>
+
+    <!-- Intro -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header" data-animate>
+          <div class="decor-line"></div>
+          <p class="section-label">Who We Are</p>
+          <h2 class="section-title">A Club Built for Every Runner</h2>
+          <p class="section-desc">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum nemo, nesciunt dignissimos porro nam nisi omnis! Aliquam voluptas repudiandae iusto expedita ducimus, sit nam odio magnam vitae cupiditate. Alias, tenetur!
+          </p>
+        </div>
+        <div class="stat-grid" data-stagger>
+          <div class="stat-item">
+            <div class="stat-number">[MEMBER COUNT]</div>
+            <div class="stat-label">Active Members</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">4</div>
+            <div class="stat-label">Weekly Sessions</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">12+</div>
+            <div class="stat-label">Events / Year</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">All</div>
+            <div class="stat-label">Experience Levels</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Activities Preview -->
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-header text-center" data-animate>
+          <div class="decor-line"></div>
+          <p class="section-label">What We Do</p>
+          <h2 class="section-title">Activities for Every Goal</h2>
+          <p class="section-desc">From easy social jogs to focused speed work — find your pace with us.</p>
+        </div>
+        <div class="grid-3" data-stagger>
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">
+              <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a2 2 0 01-2-2v-1"/><path d="M13 6H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l4-4h2"/></svg>
+            </div>
+            <h3 class="card-title">Social Runs</h3>
+            <p class="card-text">Easy-paced group runs focused on conversation, community, and enjoying the route together.</p>
+            <div class="activity-meta">
+              <span class="tag tag-all">All Levels</span>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">
+              <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            </div>
+            <h3 class="card-title">Speed Training</h3>
+            <p class="card-text">Structured intervals and tempo sessions designed to build strength, speed, and race readiness.</p>
+            <div class="activity-meta">
+              <span class="tag tag-moderate">Moderate+</span>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">
+              <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            </div>
+            <h3 class="card-title">Long-Distance Runs</h3>
+            <p class="card-text">Build endurance with longer weekend routes. Perfect for marathon and half-marathon training.</p>
+            <div class="activity-meta">
+              <span class="tag tag-hard">Experienced</span>
+            </div>
+          </article>
+        </div>
+        <div class="text-center" style="margin-top: var(--space-10);" data-animate>
+          <a href="activities.html" class="btn btn-secondary">View All Activities</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Events Preview -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header" data-animate>
+          <div class="decor-line"></div>
+          <p class="section-label">Coming Up</p>
+          <h2 class="section-title">Upcoming Events</h2>
+          <p class="section-desc">Demonstration event listings — replace with your real schedule.</p>
+        </div>
+        <div class="grid-2" data-stagger>
+          <article class="event-card">
+            <div class="event-card-date">
+              <span class="day">12</span>
+              <span class="month">[MONTH]</span>
+            </div>
+            <div class="event-card-body">
+              <p class="event-card-category">Social Run</p>
+              <h3 class="event-card-title">Sunrise Park Loop</h3>
+              <div class="event-card-meta">
+                <span>[TIME]</span>
+                <span>[EVENT LOCATION]</span>
+              </div>
+              <p class="event-card-text">An easy-paced group run through scenic park paths. Open to all levels.</p>
+              <a href="event-details.html" class="btn btn-ghost btn-sm">Event Details</a>
+            </div>
+          </article>
+          <article class="event-card">
+            <div class="event-card-date">
+              <span class="day">18</span>
+              <span class="month">[MONTH]</span>
+            </div>
+            <div class="event-card-body">
+              <p class="event-card-category">Speed Session</p>
+              <h3 class="event-card-title">Track Intervals Night</h3>
+              <div class="event-card-meta">
+                <span>[TIME]</span>
+                <span>[EVENT LOCATION]</span>
+              </div>
+              <p class="event-card-text">Structured 400m and 800m intervals. Bring your training shoes and water.</p>
+              <a href="events.html" class="btn btn-ghost btn-sm">View Events</a>
+            </div>
+          </article>
+        </div>
+        <div class="text-center" style="margin-top: var(--space-10);" data-animate>
+          <a href="events.html" class="btn btn-secondary">All Events</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Community Highlights -->
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-header text-center" data-animate>
+          <div class="decor-line"></div>
+          <p class="section-label">Community</p>
+          <h2 class="section-title">Why Runners Stay</h2>
+        </div>
+        <div class="grid-3" data-stagger>
+          <div class="card">
+            <h3 class="card-title">Consistency</h3>
+            <p class="card-text">Regular sessions that fit around real life. Show up when you can — progress follows.</p>
+          </div>
+          <div class="card">
+            <h3 class="card-title">Inclusivity</h3>
+            <p class="card-text">Beginners to seasoned athletes. Every pace is welcome. No one gets left behind.</p>
+          </div>
+          <div class="card">
+            <h3 class="card-title">Support</h3>
+            <p class="card-text">A community that cheers your first 5K and your next marathon PR equally.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Membership CTA -->
+    <section class="section">
+      <div class="container">
+        <div class="cta-banner" data-animate>
+          <h2>Ready to Find Your Pace?</h2>
+          <p>Join RUNNING CLUB NAME and become part of a community that runs together, supports each other, and celebrates every milestone.</p>
+          <a href="membership.html" class="btn btn-primary btn-lg">Join the Club</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">RUNNING CLUB NAME</div>
+          <p class="footer-desc">Every pace. One community. A running club for all levels, built on consistency, inclusivity, and support.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="Instagram (placeholder)" title="YOUR SOCIAL LINK">
+              <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            </a>
+            <a href="#" aria-label="Strava (placeholder)" title="YOUR SOCIAL LINK">
+              <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066m-7.008-5.599l2.836 5.599h4.172L10.463 0l-7 13.828h4.169"/></svg>
+            </a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer-heading">Explore</h4>
+          <div class="footer-links">
+            <a href="about.html">About</a>
+            <a href="activities.html">Activities</a>
+            <a href="events.html">Events</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="membership.html">Membership</a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer-heading">Get Involved</h4>
+          <div class="footer-links">
+            <a href="membership.html">Join the Club</a>
+            <a href="contact.html">Contact Us</a>
+            <a href="events.html">Upcoming Events</a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer-heading">Contact</h4>
+          <div class="footer-links">
+            <a href="mailto:hello@example.com">YOUR EMAIL</a>
+            <span style="color: rgba(255,255,255,0.55); font-size: var(--text-sm);">YOUR LOCATION</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; <span id="year"></span> RUNNING CLUB NAME. All rights reserved.</span>
+        <span>Demonstration website — replace placeholders with your details.</span>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-to-top" aria-label="Back to top">
+    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+  </button>
+
+  <script src="script.js"></script>
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>

@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Activities at RUNNING CLUB NAME — social runs, speed training, long runs, and beginner sessions.">
+  <title>Activities — RUNNING CLUB NAME</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Loading Overlay -->
+  <div id="loader-overlay" class="loader-overlay" aria-busy="true">
+    <div class="loader-content">
+      <div class="loader-brand">RUNNING CLUB NAME</div>
+
+      <div class="runner-container" aria-hidden="true">
+        <div class="runner">
+          <div class="runner-leg runner-leg--far"><div class="runner-shin"></div></div>
+          <div class="runner-torso">
+            <div class="runner-head"></div>
+            <div class="runner-arm runner-arm--far"><div class="runner-forearm"></div></div>
+            <div class="runner-arm runner-arm--near"><div class="runner-forearm"></div></div>
+          </div>
+          <div class="runner-leg runner-leg--near"><div class="runner-shin"></div></div>
+        </div>
+        <div class="runner-shadow"></div>
+      </div>
+
+      <div class="loader-progress-wrap">
+        <div class="loader-progress-track" role="progressbar" aria-label="Page loading" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+          <div class="loader-progress-bar"></div>
+        </div>
+        <div class="loader-percent" aria-hidden="true">0%</div>
+        <div class="loader-message" aria-hidden="true">Warming up</div>
+      </div>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="brand" aria-label="RUNNING CLUB NAME — Home">
+        <span class="brand-name">RUNNING CLUB NAME</span>
+      </a>
+      <nav class="nav-desktop" aria-label="Main navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="activities.html" class="nav-link">Activities</a>
+        <a href="events.html" class="nav-link">Events</a>
+        <a href="gallery.html" class="nav-link">Gallery</a>
+        <a href="membership.html" class="nav-link">Membership</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="membership.html" class="btn btn-primary btn-sm nav-cta">Join the Club</a>
+      </nav>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+    </div>
+  </header>
+
+  <nav id="mobile-menu" class="nav-mobile" aria-label="Mobile navigation">
+    <a href="index.html" class="nav-link">Home</a>
+    <a href="about.html" class="nav-link">About</a>
+    <a href="activities.html" class="nav-link">Activities</a>
+    <a href="events.html" class="nav-link">Events</a>
+    <a href="membership.html" class="nav-link">Membership</a>
+    <a href="contact.html" class="nav-link">Contact</a>
+    <a href="membership.html" class="btn btn-primary nav-cta">Join the Club</a>
+  </nav>
+
+  <main class="main-content">
+    <section class="page-hero">
+      <div class="hero-bg"></div>
+      <div class="container">
+        <p class="hero-label" data-animate>Train With Us</p>
+        <h1 class="page-hero-title" data-animate>Activities</h1>
+        <p class="page-hero-text" data-animate>
+          Structured sessions and social runs designed for every level. Demonstration content — customise with your real schedule.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-header" data-animate>
+          <div class="decor-line"></div>
+          <p class="section-label">Find Your Session</p>
+          <h2 class="section-title">What We Offer</h2>
+          <p class="section-desc">Filter by type or browse everything. Meeting details are placeholders.</p>
+        </div>
+
+        <div class="filter-bar" data-filter-target="[data-filter-item]" role="group" aria-label="Filter activities" data-animate>
+          <button class="filter-btn is-active" data-filter="all" aria-pressed="true">All</button>
+          <button class="filter-btn" data-filter="social" aria-pressed="false">Social</button>
+          <button class="filter-btn" data-filter="speed" aria-pressed="false">Speed</button>
+          <button class="filter-btn" data-filter="long" aria-pressed="false">Long Distance</button>
+          <button class="filter-btn" data-filter="beginner" aria-pressed="false">Beginner</button>
+          <button class="filter-btn" data-filter="strength" aria-pressed="false">Strength</button>
+        </div>
+
+        <div class="grid-2" data-stagger>
+          <!-- Social Runs -->
+          <article class="card" data-filter-item data-category="social all" data-animate>
+            <div class="card-icon" aria-hidden="true">
+              <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a2 2 0 01-2-2v-1"/><path d="M13 6H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l4-4h2"/></svg>
+            </div>
+            <h3 class="card-title">Social Runs</h3>
+            <p class="card-text">
+              Easy-paced group runs focused on conversation and community. Routes vary weekly. Perfect for meeting other members and exploring the area at a comfortable effort.
+            </p>
+            <div class="activity-meta">
+              <span class="tag tag-all">All Levels</span>
+              <span class="tag">~45–60 min</span>
+              <span class="tag">[MEETING POINT]</span>
+            </div>
+          </article>
+
+          <!-- Speed Training -->
+          <article class="card" data-filter-item data-category="speed all" data-animate>
+            <div class="card-icon" aria-hidden="true">
+              <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            </div>
+            <h3 class="card-title">Speed Training</h3>
+            <p class="card-text">
+              Structured intervals, tempo efforts, and track sessions. Designed to improve VO2 max, lactate threshold, and race-day sharpness. Coaches provide effort guidance.
+            </p>
+            <div class="activity-meta">
+              <span class="tag tag-moderate">Moderate+</span>
+              <span class="tag">~60–75 min</span>
+              <span class="tag">[TRACK / LOCATION]</span>
+            </div>
+          </article>
+
+          <!-- Long-Distance -->
+          <article class="card" data-filter-item data-category="long all" data-animate>
+            <div class="card-icon" aria-hidden="true">
+              <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            </div>
+            <h3 class="card-title">Long-Distance Runs</h3>
+            <p class="card-text">
+              Weekend long runs building aerobic endurance. Distances scale with the group’s goals — ideal for half and full marathon preparation. Support vehicles on select routes.
+            </p>
+            <div class="activity-meta">
+              <span class="tag tag-hard">Experienced</span>
+              <span class="tag">90–180 min</span>
+              <span class="tag">[ROUTE START]</span>
+            </div>
+          </article>
+
+          <!-- Beginner-Friendly -->
+          <article class="card" data-filter-item data-category="beginner social all" data-animate>
+            <div class="card-icon" aria-hidden="true">
+              <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <h3 class="card-title">Beginner-Friendly Sessions</h3>
+            <p class="card-text">
+              Walk-run intervals, technique tips, and a welcoming atmosphere. No experience required. We start slow and build confidence together. Ideal for new runners or returning after a break.
+            </p>
+            <div class="activity-meta">
+              <span class="tag tag-easy">Beginner</span>
+              <span class="tag">~40–50 min</span>
+              <span class="tag">[MEETING POINT]</span>
+            </div>
+          </article>
+
+          <!-- Strength / Mobility -->
+          <article class="card" data-filter-item data-category="strength all" data-animate>
+            <div class="card-icon" aria-hidden="true">
+              <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 4h12M6 20h12M8 4v16M16 4v16M4 8h4M16 8h4M4 16h4M16 16h4"/></svg>
+            </div>
+            <h3 class="card-title">Strength & Mobility</h3>
+            <p class="card-text">
+              Optional conditioning sessions focusing on injury prevention, core strength, and mobility. Bodyweight and light equipment. Complements your running load.
+            </p>
+            <div class="activity-meta">
+              <span class="tag tag-all">All Levels</span>
+              <span class="tag">~45 min</span>
+              <span class="tag">[INDOOR / PARK]</span>
+            </div>
+          </article>
+
+          <!-- Recovery / Easy -->
+          <article class="card" data-filter-item data-category="social beginner all" data-animate>
+            <div class="card-icon" aria-hidden="true">
+              <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707"/><circle cx="12" cy="12" r="4"/></svg>
+            </div>
+            <h3 class="card-title">Recovery Runs</h3>
+            <p class="card-text">
+              Short, very easy-paced runs prioritising active recovery. Great between hard sessions or as a gentle mid-week option. Conversation pace only.
+            </p>
+            <div class="activity-meta">
+              <span class="tag tag-easy">Easy</span>
+              <span class="tag">~30–40 min</span>
+              <span class="tag">[MEETING POINT]</span>
+            </div>
+          </article>
+        </div>
+
+        <p class="text-muted text-center" style="margin-top: var(--space-10); font-size: var(--text-sm);" data-animate>
+          All session details above are demonstration placeholders. Replace with your actual meeting times, locations, and descriptions.
+        </p>
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <div class="container">
+        <div class="cta-banner" data-animate>
+          <h2>Not Sure Where to Start?</h2>
+          <p>Get in touch and we’ll help you find the right session for your experience and goals.</p>
+          <div style="display: flex; flex-wrap: wrap; gap: var(--space-4); justify-content: center;">
+            <a href="contact.html" class="btn btn-primary btn-lg">Contact Us</a>
+            <a href="membership.html" class="btn btn-white btn-lg">Join the Club</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">RUNNING CLUB NAME</div>
+          <p class="footer-desc">Every pace. One community. A running club for all levels, built on consistency, inclusivity, and support.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="Instagram (placeholder)" title="YOUR SOCIAL LINK">
+              <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            </a>
+            <a href="#" aria-label="Strava (placeholder)" title="YOUR SOCIAL LINK">
+              <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066m-7.008-5.599l2.836 5.599h4.172L10.463 0l-7 13.828h4.169"/></svg>
+            </a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer-heading">Explore</h4>
+          <div class="footer-links">
+            <a href="about.html">About</a>
+            <a href="activities.html">Activities</a>
+            <a href="events.html">Events</a>
+            <a href="membership.html">Membership</a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer-heading">Get Involved</h4>
+          <div class="footer-links">
+            <a href="membership.html">Join the Club</a>
+            <a href="contact.html">Contact Us</a>
+            <a href="events.html">Upcoming Events</a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer-heading">Contact</h4>
+          <div class="footer-links">
+            <a href="mailto:hello@example.com">YOUR EMAIL</a>
+            <span style="color: rgba(255,255,255,0.55); font-size: var(--text-sm);">YOUR LOCATION</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; <span id="year"></span> RUNNING CLUB NAME. All rights reserved.</span>
+        <span>Demonstration website — replace placeholders with your details.</span>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-to-top" aria-label="Back to top">
+    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+  </button>
+
+  <script src="script.js"></script>
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>
