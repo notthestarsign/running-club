@@ -357,7 +357,7 @@
     });
 
     // If the window grows to the desktop layout, don't leave the page locked
-    window.matchMedia("(min-width: 1080px)").addEventListener("change", (e) => {
+    window.matchMedia("(min-width: 1180px)").addEventListener("change", (e) => {
       if (e.matches && isOpen()) setOpen(false);
     });
   }
@@ -630,7 +630,13 @@
       });
 
       if (valid) {
-        // Demonstration only
+        // Open the visitor's email app with the message pre-filled
+        const val = (id) => document.getElementById(id).value.trim();
+        const body = `${val("message")}\n\n— ${val("name")} (${val("email")})`;
+        window.location.href =
+          "mailto:hello@runningwithsole.co.za" +
+          "?subject=" + encodeURIComponent(val("subject")) +
+          "&body=" + encodeURIComponent(body);
         form.reset();
         if (successMsg) {
           successMsg.classList.add("is-visible");
@@ -639,7 +645,7 @@
         // Hide success after a while
         setTimeout(() => {
           if (successMsg) successMsg.classList.remove("is-visible");
-        }, 6000);
+        }, 10000);
       }
     });
 
@@ -677,9 +683,9 @@
       category: "Featured Event",
       description:
         "Join us for a special group run followed by a social gathering. Celebrate the club, meet fellow runners, and enjoy a welcoming community atmosphere. All paces are welcome.",
-      date: "[EVENT DATE]",
-      time: "[TIME]",
-      location: "[EVENT LOCATION]",
+      date: "Saturday, 28 November 2026",
+      time: "06:30",
+      location: "Main Park Entrance",
       difficulty: "All levels"
     },
 
@@ -688,9 +694,9 @@
       category: "Social Run",
       description:
         "Start your morning with an easy-paced group run through scenic park paths. This relaxed session is suitable for runners of all levels. Meet the group at the main entrance and enjoy the run together.",
-      date: "12 [MONTH]",
-      time: "[TIME]",
-      location: "[EVENT LOCATION]",
+      date: "Saturday, 7 November 2026",
+      time: "05:45",
+      location: "Main Park Entrance",
       difficulty: "All levels"
     },
 
@@ -699,9 +705,9 @@
       category: "Speed Session",
       description:
         "Improve your speed and running efficiency with structured 400-metre and 800-metre intervals, with recovery jogs between efforts. Bring a running watch, water bottle, and suitable training shoes.",
-      date: "18 [MONTH]",
-      time: "[TIME]",
-      location: "[EVENT LOCATION]",
+      date: "Wednesday, 11 November 2026",
+      time: "18:00",
+      location: "Community Athletics Track",
       difficulty: "Moderate and above"
     },
 
@@ -710,9 +716,9 @@
       category: "Race Preparation",
       description:
         "Build endurance with a progressive long run designed for half-marathon preparation. Multiple distance options can accommodate different training goals. Choose a distance appropriate to your current fitness and training plan.",
-      date: "25 [MONTH]",
-      time: "[TIME]",
-      location: "[EVENT LOCATION]",
+      date: "Saturday, 21 November 2026",
+      time: "05:30",
+      location: "Park Trailhead Car Park",
       difficulty: "Experienced runners"
     },
 
@@ -721,9 +727,9 @@
       category: "Social",
       description:
         "Meet the club in a friendly, relaxed setting. This short group run welcomes new and prospective members, with time afterwards for coffee, introductions, and questions about joining.",
-      date: "02 [MONTH]",
-      time: "[TIME]",
-      location: "[EVENT LOCATION]",
+      date: "Saturday, 5 December 2026",
+      time: "07:00",
+      location: "Main Park Entrance",
       difficulty: "Beginner friendly"
     }
   };

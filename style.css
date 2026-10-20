@@ -419,18 +419,6 @@ body.is-loading {
   border-radius: 50%;
 }
 
-/* Nose makes the facing direction unmistakable */
-.runner-head::after {
-  content: "";
-  position: absolute;
-  right: -3px;
-  top: 7px;
-  width: 6px;
-  height: 4px;
-  background: var(--color-accent);
-  border-radius: 0 4px 4px 0;
-}
-
 /* Arms */
 .runner-arm {
   position: absolute;
@@ -601,15 +589,49 @@ body.is-loading {
   align-items: center;
   gap: var(--space-3);
   z-index: 10;
+  flex-shrink: 0;
+  min-width: 0;
+}
+
+/* Logo keeps its square ratio and never shrinks or stretches */
+.brand-logo {
+  display: block;
+  flex: 0 0 auto;
+  width: 52px;
+  height: 52px;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  border-radius: 50%;
+  transition: width var(--duration-base) var(--ease-out), height var(--duration-base) var(--ease-out);
+}
+
+.site-header.is-scrolled .brand-logo {
+  width: 44px;
+  height: 44px;
 }
 
 .brand-name {
+  display: flex;
+  flex-direction: column;
   font-family: var(--font-display);
-  font-size: var(--text-xl);
-  letter-spacing: 0.08em;
+  font-size: var(--text-lg);
+  line-height: 1.05;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
+  white-space: nowrap;
   color: #fff;
   transition: color var(--duration-base);
+}
+
+.brand-name span:last-child {
+  color: var(--color-accent);
+  letter-spacing: 0.16em;
+}
+
+@media (max-width: 380px) {
+  .brand-logo { width: 44px; height: 44px; }
+  .brand-name { font-size: 1rem; letter-spacing: 0.06em; }
+  .brand-name span:last-child { letter-spacing: 0.1em; }
 }
 
 .nav-desktop {
@@ -781,7 +803,7 @@ body.is-loading {
   outline-offset: 3px;
 }
 
-@media (min-width: 1080px) {
+@media (min-width: 1180px) {
   .nav-desktop {
     display: flex;
   }
@@ -1628,6 +1650,9 @@ body.is-loading {
 }
 
 .footer-brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
   font-family: var(--font-display);
   font-size: var(--text-2xl);
   letter-spacing: 0.08em;
@@ -2396,4 +2421,31 @@ body.modal-open {
   .event-modal-close {
     transition: none;
   }
+}
+
+.footer-logo {
+  flex: 0 0 auto;
+  width: 56px;
+  height: 56px;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+}
+
+.placeholder-visual .visual-logo {
+  position: relative;
+  width: min(220px, 70%);
+  aspect-ratio: 1 / 1;
+  height: auto;
+  border-radius: 50%;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+}
+
+/* Keep the full club name + logo + nav on one row on smaller desktops */
+@media (min-width: 1180px) and (max-width: 1349px) {
+  .nav-link { padding-inline: var(--space-2); font-size: 0.8rem; }
+  .nav-link::after { left: var(--space-2); right: var(--space-2); }
+  .nav-cta { margin-left: var(--space-2); }
+  .brand-name { font-size: 1.05rem; letter-spacing: 0.06em; }
+  .brand-name span:last-child { letter-spacing: 0.1em; }
+  .header-inner { padding-inline: var(--space-4); }
 }
